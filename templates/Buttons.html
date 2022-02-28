@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Manage API DB</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='myfont/css/all.min.css')}}">
+</head>
+<body>
+<div class="container" >
+    <div class="col-md-offset-3 col-md-5">
+        <h2 class="page-header text-primary text-center"><span> Knesset Management System</span></h2>
+        <div class="col text-center">
+        <a class="btn btn-primary" href="/add" role="button">Add Member</a>
+        </div>
+        <div class="col text-center">
+        <a class="btn btn-info" href="/update" role="button">Update Member</a>
+        </div>
+        <div class="col text-center">
+        <a class="btn btn-success" href="/upload" role="button">Upload CSV</a>
+        </div>
+        <div class="col text-center">
+        <a class="btn btn-danger" href="/delete" role="button">Delete Member</a>
+        </div>
+    </div>
+    </div>
+</div>
+</body>
+</html>
+

@@ -1,3 +1,6 @@
+import json
+
+import requests
 from flask import Flask, render_template, request
 from forms import DeleteForm
 from flask_bootstrap import Bootstrap
@@ -23,6 +26,11 @@ def delete():
     if request.method == 'POST' and form.validate():
         first_name = form.first_name.data
         last_name = form.last_name.data
+        payload = {"first_name": first_name, "last_name": last_name}
+        headers = {'content-type': 'application/json'}
+        url = "http://127.0.0.1:5000/member"
+        requests.delete(url, headers=headers, data=json.dumps(payload))
+        return 'Member Deleted'
 
     return render_template('delete_member.html', form=form)
 

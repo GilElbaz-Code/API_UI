@@ -21,8 +21,24 @@ def add():
     if request.method == 'POST' and form.validate():
         first_name = form.first_name.data
         last_name = form.last_name.data
+        # TODO Continue form parse and add also on API
         return 'Member Added'
     return render_template('add_member.html', form=form)
+
+
+@app.route('/update', methods=['GET', 'POST'])
+def update():
+    pass
+
+
+@app.route('/patch', methods=['GET', 'POST'])
+def patch():
+    pass
+
+
+@app.route('/upload_csv', methods=['GET', 'POST'])
+def upload_csv():
+    pass
 
 
 @app.route('/delete', methods=['GET', 'POST'])

@@ -47,8 +47,8 @@ class AddForm(Form):
     political_consultant_phone = IntegerField('Political Consultant Name',
                                               validators=[])
     picture = StringField('Picture (URL)',
-                          validators=DataRequired())
+                          validators=[DataRequired()])
     position = StringField('Position',
-                           validators=DataRequired())
+                           validators=[DataRequired()])
 
     submit = SubmitField('Add Member')

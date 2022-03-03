@@ -6,7 +6,7 @@
     <hr>
     <form action="" method="post" class="form" role="form">
         {% if 'csrf_token' in form %}
-        {{form.csrf_token}}
+            {{form.csrf_token}}
         {% endif %}
         <div class="row">
             <div class="form-group col-md-6">
@@ -52,12 +52,10 @@
                 {{ wtf.form_field(form.head_office_name, class='form-control', placeholder='Head Office Name') }}
             </div>
             <div class="form-group col-md-6">
-                {{ wtf.form_field(form.political_consultant_name, class='form-control', placeholder='Political
-                Consultant_Name') }}
+                {{ wtf.form_field(form.political_consultant_name, class='form-control', placeholder='Political Consultant Name') }}
             </div>
             <div class="form-group col-md-6">
-                {{ wtf.form_field(form.political_consultant_phone, class='form-control', placeholder='Political
-                Consultant Phone') }}
+                {{ wtf.form_field(form.political_consultant_phone, class='form-control', placeholder='Political Consultant Phone') }}
             </div>
             <div class="form-group col-md-6">
                 {{ wtf.form_field(form.picture, class='form-control', placeholder='Picture (URL)') }}

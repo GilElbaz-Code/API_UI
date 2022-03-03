@@ -2,7 +2,7 @@ import json
 
 import requests
 from flask import Flask, render_template, request
-from forms import DeleteForm
+from forms import DeleteForm, AddForm
 from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
@@ -15,9 +15,14 @@ def home():
     return render_template('layout.html')
 
 
-@app.route('/add')
+@app.route('/add', methods=['GET', 'POST'])
 def add():
-    return "Add"
+    form = AddForm(request.form)
+    if request.method == 'POST' and form.validate():
+        first_name = form.first_name.data
+        last_name = form.last_name.data
+        return 'Member Added'
+    return render_template('add_member.html', form=form)
 
 
 @app.route('/delete', methods=['GET', 'POST'])

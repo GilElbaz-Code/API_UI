@@ -44,7 +44,7 @@ class AddForm(Form):
                                      validators=[])
     political_consultant_name = StringField('Political Consultant Name',
                                             validators=[])
-    political_consultant_phone = IntegerField('Political Consultant Name',
+    political_consultant_phone = IntegerField('Political Consultant Phone',
                                               validators=[])
     picture = StringField('Picture (URL)',
                           validators=[DataRequired()])

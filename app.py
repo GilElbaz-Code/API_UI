@@ -1,14 +1,17 @@
 import json
 import requests
-from flask import Flask, render_template, request
-from forms import DeleteForm, AddForm
+from flask import Flask, render_template, request, redirect
 from flask_bootstrap import Bootstrap
+from forms.add_form import AddForm
+from forms.delete_form import DeleteForm
+from forms.update_form import UpdateForm
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5791628bb0b13ce0c676dfde280ba245'
 Bootstrap(app)
 headers = {'content-type': 'application/json'}
 URL = "http://127.0.0.1:5000/member"
+BY_NAME_URL = "http://127.0.0.1:5000/byName"
 
 
 @app.route('/')
@@ -48,24 +51,23 @@ def add():
                    'political_consultant_name': political_consultant_name,
                    'political_consultant_phone': political_consultant_phone, 'picture': picture,
                    'position': position}
-        requests.post(URL, headers=headers, data=json.dumps(payload))
-        return 'Member Added'
+        response = requests.post(URL, headers=headers, data=json.dumps(payload))
+        return response.json()
     return render_template('add_member.html', form=form)
 
 
 @app.route('/update', methods=['GET', 'POST'])
 def update():
-    pass
+    form = UpdateForm(request.form)
+    if request.method == 'POST' and form.validate():
+        first_name = form.first_name.data
+        last_name = form.last_name.data
+        print(first_name, last_name)
+        payload = {"first_name": first_name, "last_name": last_name}
+        member_json = requests.get(BY_NAME_URL, headers=headers, data=json.dumps(payload))
+        return 'test'
 
-
-@app.route('/patch', methods=['GET', 'POST'])
-def patch():
-    pass
-
-
-@app.route('/upload_csv', methods=['GET', 'POST'])
-def upload_csv():
-    pass
+    return render_template('update_member.html', form=form)
 
 
 @app.route('/delete', methods=['GET', 'POST'])
@@ -75,9 +77,8 @@ def delete():
         first_name = form.first_name.data
         last_name = form.last_name.data
         payload = {"first_name": first_name, "last_name": last_name}
-        requests.delete(URL, headers=headers, data=json.dumps(payload))
-        return 'Member Deleted'
-
+        response = requests.delete(URL, headers=headers, data=json.dumps(payload))
+        return response.json()
     return render_template('delete_member.html', form=form)
 
 

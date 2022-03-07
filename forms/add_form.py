@@ -1,14 +1,6 @@
 from flask_wtf import Form
-from wtforms import EmailField, IntegerField, StringField, SubmitField
+from wtforms import StringField, SubmitField, IntegerField, EmailField
 from wtforms.validators import DataRequired, Length
-
-
-class DeleteForm(Form):
-    first_name = StringField('First Name',
-                             validators=[DataRequired(), Length(min=2, max=30)])
-    last_name = StringField('Last Name',
-                            validators=[DataRequired(), Length(min=2, max=30)])
-    submit = SubmitField('Delete Member')
 
 
 class AddForm(Form):

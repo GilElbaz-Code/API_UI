@@ -1,0 +1,72 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+<div class="container">
+    <h3>Change a Member</h3>
+    <hr>
+    <form action="" method="post" class="form" role="form">
+        {% if 'csrf_token' in form %}
+            {{form.csrf_token}}
+        {% endif %}
+        <div class="row">
+            <div class="form-group col-md-6">
+                {{ wtf.form_field(form.first_name, class='form-control', placeholder='First Name') }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ wtf.form_field(form.last_name, class='form-control', placeholder='Last Name') }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ wtf.form_field(form.facebook, class='form-control', placeholder='Facebook') }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ wtf.form_field(form.twitter, class='form-control', placeholder='Twitter') }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ wtf.form_field(form.party, class='form-control', placeholder='Party') }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ wtf.form_field(form.gov_role, class='form-control', placeholder='Gov Role') }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ wtf.form_field(form.knesset_role, class='form-control', placeholder='Knesset Role') }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ wtf.form_field(form.additional_role, class='form-control', placeholder='Additional Role') }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ wtf.form_field(form.personal_phone, class='form-control', placeholder='Personal Phone') }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ wtf.form_field(form.office_phone, class='form-control', placeholder='Office Phone') }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ wtf.form_field(form.email, class='form-control', placeholder='Email') }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ wtf.form_field(form.speaker_name, class='form-control', placeholder='Speaker Name') }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ wtf.form_field(form.speaker_phone, class='form-control', placeholder='Speaker Phone') }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ wtf.form_field(form.head_office_name, class='form-control', placeholder='Head Office Name') }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ wtf.form_field(form.political_consultant_name, class='form-control', placeholder='Political Consultant Name') }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ wtf.form_field(form.political_consultant_phone, class='form-control', placeholder='Political Consultant Phone') }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ wtf.form_field(form.picture, class='form-control', placeholder='Picture (URL)') }}
+            </div>
+            <div class="form-group col-md-6">
+                {{ wtf.form_field(form.position, class='form-control', placeholder='Position') }}
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Change Member</button>
+    </form>
+    <hr>
+    <p><a href="/">Go back</a></p>
+</div>
+{% endblock %}

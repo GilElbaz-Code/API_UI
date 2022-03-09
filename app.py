@@ -93,7 +93,6 @@ def update():
         else:
             return print("Member does not exist")
 
-
     return render_template('check_member_exist.html', form=form)
 
 
